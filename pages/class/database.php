@@ -43,5 +43,25 @@ class Database{
 	public function get_data_json($sQuery){
 		return json_encode($this->get_data_array($sQuery));
 	}
+
+	public function insert_data($sTable, $sField, $sValue){
+		$conn = $this->koneksi();
+		$result = 0;
+		$sql = "";
+
+		if($sField == ''){
+			$sql = "INSERT INTO $sTable VALUES($sValue)";
+		}else{
+			$sql = "INSERT INTO $sTable($sField) VALUES($sValue)";
+		}
+
+		if($conn){
+			$ins = $conn->prepare($sql);
+			$result = $ins->execute();
+			$conn->close();
+		}
+
+		return $result;
+	}
 }
 ?>
