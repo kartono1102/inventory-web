@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="css/AdminLTE.min.css">
   <link rel="stylesheet" href="css/skins/_all-skins.min.css">
   <link rel="stylesheet" href="plugins/datatables/dataTables.bootstrap.css">
+  <link rel="stylesheet" href="plugins/sweetalert/sweetalert.css">
 
   <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
@@ -22,6 +23,7 @@
   <script src="js/app.min.js"></script>
   <script src="plugins/datatables/jquery.dataTables.js"></script>
   <script src="plugins/datatables/dataTables.bootstrap.js"></script>
+  <script src="plugins/sweetalert/sweetalert.min.js"></script>
 
 </head>
 <body class="hold-transition skin-blue sidebar-mini">

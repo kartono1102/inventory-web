@@ -10,7 +10,16 @@ if(isset($_GET['r'])){
 	switch($tipe){
 		case 'AddKota':
 			$nama = $_POST['nama-add'];
-			$result = $db->insert_data('tbl_kota', 'nama_kota', "'$nama'");
+			$result = $db->insert_data("tbl_kota", "nama_kota", "'$nama'");
+			break;
+		case 'EditKota':
+			$kode = $_POST['kode-edit'];
+			$nama = $_POST['nama-edit'];
+			$result = $db->update_data("tbl_kota", "nama_kota='$nama'", "id_kota='$kode'");
+			break;
+		case 'DeleteKota':
+			$kode = $_POST['kode-delete'];
+			$result = $db->delete_data("tbl_kota", "id_kota='$kode'");
 			break;
 	}
 

@@ -6,7 +6,8 @@ class Database{
 	private $databs = 'db_inventory';
 
 	private function koneksi(){
-		return new mysqli($this->server, $this->usernm, $this->passwd, $this->databs);
+		return new PDO('mysql:host='.$this->server.';dbname='.$this->databs.';charset=utf8mb4', $this->usernm, $this->passwd);
+		//return new mysqli($this->server, $this->usernm, $this->passwd, $this->databs);
 	}
 
 	public function get_data($sQuery){
@@ -14,9 +15,8 @@ class Database{
 		$result = null;
 		
 		if($conn){
-			$res = $conn->prepare($sQuery);
-			$res->execute();
-			$result = $res->get_result();
+			$res = $conn->query($sQuery);
+			$result = $res->fetchAll(PDO::FETCH_ASSOC);
 		}
 		
 		return $result;
@@ -26,7 +26,7 @@ class Database{
 		$data = $this->get_data($sQuery);
 		
 		$result = array();
-		$result[] = $data->fetch_all();
+		$result[] = $data;//->fetch_all();
 
 		$hasil = array();
 		foreach($result as $row){
@@ -58,7 +58,30 @@ class Database{
 		if($conn){
 			$ins = $conn->prepare($sql);
 			$result = $ins->execute();
-			$conn->close();
+		}
+
+		return $result;
+	}
+
+	public function update_data($sTable, $sValueUpdate, $sCondition){
+		$conn = $this->koneksi();
+		$result = 0;
+		$sql = "UPDATE $sTable SET $sValueUpdate WHERE $sCondition";
+		if($conn){
+			$upd = $conn->prepare($sql);
+			$result = $upd->execute();
+		}
+
+		return $result;
+	}
+
+	public function delete_data($sTable, $sCondition){
+		$conn = $this->koneksi();
+		$result = 0;
+		$sql = "DELETE FROM $sTable WHERE $sCondition";
+		if($conn){
+			$del = $conn->prepare($sql);
+			$result = $del->execute();
 		}
 
 		return $result;
