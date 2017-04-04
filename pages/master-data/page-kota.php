@@ -1,7 +1,7 @@
 <?php 
-	include('class/database.php');
+	include('pages/class/database.php');
 	$db = new Database();
-	$data = $db->get_data_json("SELECT nama_kota,id_kota FROM tbl_kota");
+	$data = $db->get_data_json('SELECT nama_kota, id_kota FROM tbl_kota');
 ?>
 <div class="row">
 	<div class="col-sm-12">
@@ -111,7 +111,16 @@
 						data: "kode-delete=" + data.id_kota,
 						success: function(result){
 							if(result === "1"){
-								swal("Hapus Data", "Data telah terhapus !", "success");
+								swal({
+									title: "Hapus Data", 
+									text: "Data telah terhapus !", 
+									type: "success"
+								},
+								function(isConfirm2){
+									if(isConfirm2){
+										location.reload();
+									}
+								});
 							}
 						}
 					});
@@ -124,7 +133,7 @@
 		});
 
 		$('#refresh').click(function(){
-			$('#mdKota').click();
+			location.reload();
 		});
 
 		$('#formAdd').submit(function(e){
@@ -134,7 +143,7 @@
 				data: $(this).serialize(),
 				success: function(result){
 					if(result === "1"){
-						$('#modalAdd').modal('hide');
+						location.reload();
 					}
 				}
 			});
@@ -148,7 +157,7 @@
 				data: $(this).serialize(),
 				success: function(result){
 					if(result === "1"){
-						$('#modalEdit').modal('hide');
+						location.reload();
 					}
 				}
 			});

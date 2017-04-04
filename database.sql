@@ -1,8 +1,8 @@
 /*
-SQLyog Community v12.4.1 (64 bit)
-MySQL - 10.1.21-MariaDB : Database - db_inventory
+SQLyog Community v12.3.2 (64 bit)
+MySQL - 10.1.16-MariaDB : Database - db_inventory
 *********************************************************************
-*/
+*/
 
 /*!40101 SET NAMES utf8 */;
 
@@ -17,8 +17,6 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/`db_inventory` /*!40100 DEFAULT CHARACTE
 USE `db_inventory`;
 
 /*Table structure for table `tbl_customer` */
-
-DROP TABLE IF EXISTS `tbl_customer`;
 
 CREATE TABLE `tbl_customer` (
   `id_customer` int(11) NOT NULL AUTO_INCREMENT,
@@ -35,9 +33,29 @@ CREATE TABLE `tbl_customer` (
 
 /*Data for the table `tbl_customer` */
 
-/*Table structure for table `tbl_login` */
+/*Table structure for table `tbl_kota` */
 
-DROP TABLE IF EXISTS `tbl_login`;
+CREATE TABLE `tbl_kota` (
+  `id_kota` int(11) NOT NULL AUTO_INCREMENT,
+  `nama_kota` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_kota`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
+
+/*Data for the table `tbl_kota` */
+
+insert  into `tbl_kota`(`id_kota`,`nama_kota`) values 
+(1,'Pontianak'),
+(2,'Jakarta'),
+(3,'Bandung'),
+(4,'Surabaya'),
+(5,'Medan'),
+(9,'aaabb'),
+(10,'bb'),
+(11,'ccc'),
+(12,'dd'),
+(14,'momo');
+
+/*Table structure for table `tbl_login` */
 
 CREATE TABLE `tbl_login` (
   `id_login` int(11) NOT NULL AUTO_INCREMENT,
@@ -50,12 +68,20 @@ CREATE TABLE `tbl_login` (
 
 /*Data for the table `tbl_login` */
 
-insert  into `tbl_login`(`id_login`,`username`,`password`,`level`,`created`) values 
+insert  into `tbl_login`(`id_login`,`username`,`password`,`level`,`created`) values 
 (1,'admin','827ccb0eea8a706c4c34a16891f84e7b','Administrator','2017-03-28 13:30:30');
 
-/*Table structure for table `tbl_supplier` */
+/*Table structure for table `tbl_sales` */
 
-DROP TABLE IF EXISTS `tbl_supplier`;
+CREATE TABLE `tbl_sales` (
+  `id_sales` int(11) NOT NULL AUTO_INCREMENT,
+  `nama_sales` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_sales`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `tbl_sales` */
+
+/*Table structure for table `tbl_supplier` */
 
 CREATE TABLE `tbl_supplier` (
   `id_supplier` int(11) NOT NULL AUTO_INCREMENT,

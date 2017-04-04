@@ -1,45 +1,28 @@
-<div class="content-wrapper">
-    <section class="content-header">
-      <h1 id="judul">Content Header</h1>
-    </section>
+<?php 
+if(isset($_GET['p'])){
+	$kode = base64_decode($_GET['p']);
+	$judul = "";
 
-    <section class="content">
-		<div class="row">
-			<div class="col-sm-12">
-				<div class="box box-primary">
-					<div class="box-body" id="konten">
-						Content
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-</div>
-
-<script>
-	function loadHalaman(sumber){
-		$('#konten').html('<center><img src="img/ajax-loader.gif" /></center>');
-		$.ajax({
-			url: "pages/page-loader.php?kode=" + sumber,
-			type: "GET",
-			success: function(result){
-				$('#konten').html(result);
-			}
-		});
+	switch($kode){
+		case 'mdKota': 
+			$judul = "Data Kota";
+			include("master-data/page-kota.php");
+			break;
+		case 'mdCustomer': 
+			$judul = "Data Customer";
+			echo "Halaman Data Customer"; 
+			break;
+		case 'mdSupplier': 
+			$judul = "Data Supplier";
+			echo "Halaman Data Supplier"; 
+			break;
+		default:
+			echo "Halaman tidak dikenal";
 	}
-
-	$('#mdKota').click(function(){
-		$('#judul').html('Data Kota');
-		loadHalaman('mdKota');
-	});
-
-	$('#mdCustomer').click(function(){
-		$('#judul').html('Data Customer');
-		loadHalaman('mdCustomer');
-	});
-
-	$('#mdSupplier').click(function(){
-		$('#judul').html('Data Supplier');
-		loadHalaman('mdSupplier');
+}
+?>
+<script>
+	$(document).ready(function(){
+		$('#judul').html('<?php echo $judul; ?>');
 	});
 </script>

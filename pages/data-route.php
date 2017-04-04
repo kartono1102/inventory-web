@@ -8,6 +8,9 @@ if(isset($_GET['r'])){
 	$result = "0";
 
 	switch($tipe){
+		case 'GetDataKota':
+			$result = $db->get_data_json("SELECT nama_kota,id_kota FROM tbl_kota");
+			break;
 		case 'AddKota':
 			$nama = $_POST['nama-add'];
 			$result = $db->insert_data("tbl_kota", "nama_kota", "'$nama'");

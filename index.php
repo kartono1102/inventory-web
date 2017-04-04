@@ -31,7 +31,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="/" class="logo">
+    <a href="./" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>I</b>NV</span>
       <!-- logo for regular state and mobile devices -->
@@ -87,9 +87,12 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#" id="mdKota"><i class="fa fa-circle-o"></i> Data Kota</a></li>
-            <li><a href="#" id="mdCustomer"><i class="fa fa-circle-o"></i> Data Customer</a></li>
-            <li><a href="#" id="mdSupplier"><i class="fa fa-circle-o"></i> Data Supplier</a></li>
+            <li>
+              <a href="?p=<?php echo base64_encode('mdKota'); ?>"><i class="fa fa-circle-o"></i> Data Kota</a></li>
+            <li>
+              <a href="?p=<?php echo base64_encode('mdCustomer'); ?>"><i class="fa fa-circle-o"></i> Data Customer</a></li>
+            <li>
+              <a href="?p=<?php echo base64_encode('mdSupplier'); ?>"><i class="fa fa-circle-o"></i> Data Supplier</a></li>
           </ul>
         </li>
         <li><a href="#"><i class="fa fa-book"></i> <span>Setting</span></a></li>
@@ -98,7 +101,23 @@
     <!-- /.sidebar -->
   </aside>
 
-  <?php include('pages/content.php'); ?>
+  <div class="content-wrapper">
+    <section class="content-header">
+      <h1 id="judul">Content Header</h1>
+    </section>
+
+    <section class="content">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="box box-primary">
+          <div class="box-body" id="konten">
+            <?php include('pages/content.php'); ?>
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
+  </div>
 
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
