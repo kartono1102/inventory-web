@@ -72,7 +72,6 @@
 		var table = $('#tblKota').DataTable({
 			data: <?php echo $data; ?>,
 			columns: [
-				{ title: "ID Kota", data : "id_kota" },
 				{ title: "Nama Kota", data : "nama_kota" },
 				{ title: "Action", 
 				  bSortable: false, 

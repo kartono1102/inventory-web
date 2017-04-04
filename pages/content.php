@@ -10,7 +10,7 @@ if(isset($_GET['p'])){
 			break;
 		case 'mdCustomer': 
 			$judul = "Data Customer";
-			echo "Halaman Data Customer"; 
+			include("master-data/page-pelanggan.php");
 			break;
 		case 'mdSupplier': 
 			$judul = "Data Supplier";
