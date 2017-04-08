@@ -29,9 +29,28 @@ CREATE TABLE `tbl_customer` (
   `keterangan_customer` text,
   `created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_customer`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 /*Data for the table `tbl_customer` */
+
+insert  into `tbl_customer`(`id_customer`,`nama_customer`,`alamat_customer`,`telp_customer`,`telp2_customer`,`id_kota`,`id_sales`,`keterangan_customer`,`created`) values 
+(2,'ada123','dada','123','456',9,1,'adada','2017-04-04 23:04:58'),
+(3,'tes','122121','123','456',3,3,'asda','2017-04-04 23:07:34');
+
+/*Table structure for table `tbl_kategori` */
+
+CREATE TABLE `tbl_kategori` (
+  `id_kategori` int(11) NOT NULL AUTO_INCREMENT,
+  `nama_kategori` varchar(50) DEFAULT NULL,
+  KEY `id_kategori` (`id_kategori`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+/*Data for the table `tbl_kategori` */
+
+insert  into `tbl_kategori`(`id_kategori`,`nama_kategori`) values 
+(1,'Charger'),
+(2,'Head Set'),
+(3,'Handphone');
 
 /*Table structure for table `tbl_kota` */
 
@@ -39,17 +58,17 @@ CREATE TABLE `tbl_kota` (
   `id_kota` int(11) NOT NULL AUTO_INCREMENT,
   `nama_kota` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id_kota`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 /*Data for the table `tbl_kota` */
 
 insert  into `tbl_kota`(`id_kota`,`nama_kota`) values 
-(1,'Pontianak'),
+(1,'tes123'),
 (2,'Jakarta'),
 (3,'Bandung'),
 (4,'Surabaya'),
 (5,'Medan'),
-(9,'aaabb'),
+(9,'aaabbcc'),
 (10,'bb'),
 (11,'ccc'),
 (12,'dd'),
@@ -71,15 +90,39 @@ CREATE TABLE `tbl_login` (
 insert  into `tbl_login`(`id_login`,`username`,`password`,`level`,`created`) values 
 (1,'admin','827ccb0eea8a706c4c34a16891f84e7b','Administrator','2017-03-28 13:30:30');
 
+/*Table structure for table `tbl_merk` */
+
+CREATE TABLE `tbl_merk` (
+  `id_merk` int(11) NOT NULL AUTO_INCREMENT,
+  `nama_merk` varchar(50) DEFAULT NULL,
+  KEY `id_merk` (`id_merk`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+/*Data for the table `tbl_merk` */
+
+insert  into `tbl_merk`(`id_merk`,`nama_merk`) values 
+(1,'Apple'),
+(2,'Xiaomi'),
+(3,'Samsung'),
+(4,'Oppo'),
+(5,'Asus');
+
 /*Table structure for table `tbl_sales` */
 
 CREATE TABLE `tbl_sales` (
   `id_sales` int(11) NOT NULL AUTO_INCREMENT,
   `nama_sales` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id_sales`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 /*Data for the table `tbl_sales` */
+
+insert  into `tbl_sales`(`id_sales`,`nama_sales`) values 
+(1,'Andi'),
+(2,'Budi'),
+(3,'Cindy'),
+(4,'Dedi'),
+(5,'Edy');
 
 /*Table structure for table `tbl_supplier` */
 
