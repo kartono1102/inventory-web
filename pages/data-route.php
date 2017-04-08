@@ -56,6 +56,31 @@ if(isset($_GET['r'])){
 			$result = $db->delete_data("tbl_customer", "id_customer='$kode'");
 			break;
 
+		//page pemasok
+		case 'AddPemasok':
+			$nama 		= $_POST['nama-add'];
+			$alamat 	= $_POST['alamat-add'];
+			$telp1 		= $_POST['telp1-add'];
+			$telp2 		= $_POST['telp2-add'];
+			$kota 		= $_POST['kota-add'];
+			$keterangan = $_POST['keterangan-add'];
+			$result = $db->insert_data("tbl_supplier", "nama_supplier, alamat_supplier, telp_supplier, telp2_supplier, id_kota, keterangan_supplier", "'$nama', '$alamat', '$telp1', '$telp2', '$kota', '$keterangan'");
+			break;
+		case 'EditPemasok':
+			$kode 		= $_POST['kode-edit'];
+			$nama 		= $_POST['nama-edit'];
+			$alamat 	= $_POST['alamat-edit'];
+			$telp1 		= $_POST['telp1-edit'];
+			$telp2 		= $_POST['telp2-edit'];
+			$kota 		= $_POST['kota-edit'];
+			$keterangan = $_POST['keterangan-edit'];
+			$result = $db->update_data("tbl_supplier", "nama_supplier='$nama', alamat_supplier='$alamat', telp_supplier='$telp1', telp2_supplier='$telp2', id_kota='$kota', keterangan_supplier='$keterangan'", "id_supplier='$kode'");
+			break;
+		case 'DeletePelanggan':
+			$kode = $_POST['kode-delete'];
+			$result = $db->delete_data("tbl_supplier", "id_supplier='$kode'");
+			break;
+
 		//page kategori
 		case 'AddKategori':
 			$nama = $_POST['nama-add'];
