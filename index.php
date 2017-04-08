@@ -74,12 +74,19 @@
     </nav>
   </header>
   <!-- Left side column. contains the logo and sidebar -->
+  <?php 
+    $page = "";
+    if(isset($_GET['p'])){
+      $page = base64_decode($_GET['p']);
+    }
+  ?>
   <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
       <ul class="sidebar-menu">
         <li class="header" id="waktu" style="text-align: center; color: white; font-size: 12px;"></li>
-        <li class="treeview">
+
+        <li class="treeview <?php echo empty($page)?'':substr($page,0,2)=='md'?'active':''; ?>">
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>Master Data</span>
             <span class="pull-right-container">
@@ -87,14 +94,33 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li>
-              <a href="?p=<?php echo base64_encode('mdKota'); ?>"><i class="fa fa-circle-o"></i> Data Kota</a></li>
-            <li>
+            <li class="<?php echo empty($page)?'':$page=='mdKota'?'active':''; ?>">
+              <a href="?p=<?php echo base64_encode('mdKota'); ?>"><i class="fa fa-circle-o"></i> Data Kota</a>
+            </li>
+            <li class="<?php echo empty($page)?'':$page=='mdCustomer'?'active':''; ?>">
               <a href="?p=<?php echo base64_encode('mdCustomer'); ?>"><i class="fa fa-circle-o"></i> Data Customer</a></li>
-            <li>
+            <li class="<?php echo empty($page)?'':$page=='mdSupplier'?'active':''; ?>">
               <a href="?p=<?php echo base64_encode('mdSupplier'); ?>"><i class="fa fa-circle-o"></i> Data Supplier</a></li>
           </ul>
         </li>
+
+        <li class="treeview <?php echo empty($page)?'':substr($page,0,2)=='ms'?'active':''; ?>">
+          <a href="#">
+            <i class="fa fa-dashboard"></i> <span>Master Stock</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class="<?php echo empty($page)?'':$page=='msCategory'?'active':''; ?>">
+              <a href="?p=<?php echo base64_encode('msCategory'); ?>"><i class="fa fa-circle-o"></i> Data Category</a>
+            </li>
+            <li class="<?php echo empty($page)?'':$page=='msBrand'?'active':''; ?>">
+              <a href="?p=<?php echo base64_encode('msBrand'); ?>"><i class="fa fa-circle-o"></i> Data Merk</a>
+            </li>
+          </ul>
+        </li>
+
         <li><a href="#"><i class="fa fa-book"></i> <span>Setting</span></a></li>
       </ul>
     </section>

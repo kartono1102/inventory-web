@@ -16,6 +16,14 @@ if(isset($_GET['p'])){
 			$judul = "Data Supplier";
 			echo "Halaman Data Supplier"; 
 			break;
+		case 'msCategory':
+			$judul = "Data Category";
+			include("master-stock/page-kategori.php");
+			break;
+		case 'msBrand':
+			$judul = "Data Merk";
+			include("master-stock/page-merk.php");
+			break;
 		default:
 			echo "Halaman tidak dikenal";
 	}

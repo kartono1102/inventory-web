@@ -55,6 +55,36 @@ if(isset($_GET['r'])){
 			$kode = $_POST['kode-delete'];
 			$result = $db->delete_data("tbl_customer", "id_customer='$kode'");
 			break;
+
+		//page kategori
+		case 'AddKategori':
+			$nama = $_POST['nama-add'];
+			$result = $db->insert_data("tbl_kategori", "nama_kategori", "'$nama'");
+			break;
+		case 'EditKategori':
+			$kode = $_POST['kode-edit'];
+			$nama = $_POST['nama-edit'];
+			$result = $db->update_data("tbl_kategori", "nama_kategori='$nama'", "id_kategori='$kode'");
+			break;
+		case 'DeleteKategori':
+			$kode = $_POST['kode-delete'];
+			$result = $db->delete_data("tbl_kategori", "id_kategori='$kode'");
+			break;
+
+		//page merk
+		case 'AddMerk':
+			$nama = $_POST['nama-add'];
+			$result = $db->insert_data("tbl_merk", "nama_merk", "'$nama'");
+			break;
+		case 'EditMerk':
+			$kode = $_POST['kode-edit'];
+			$nama = $_POST['nama-edit'];
+			$result = $db->update_data("tbl_merk", "nama_merk='$nama'", "id_merk='$kode'");
+			break;
+		case 'DeleteMerk':
+			$kode = $_POST['kode-delete'];
+			$result = $db->delete_data("tbl_merk", "id_merk='$kode'");
+			break;
 	}
 
 	echo $result;
